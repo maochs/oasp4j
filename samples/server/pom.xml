@@ -32,22 +32,24 @@
         <!--<activeByDefault>true</activeByDefault>-->
         <activeByDefault>false</activeByDefault>
       </activation>
-      <dependency>
-        <!--
-        <groupId>io.oasp.js</groupId>
-        <artifactId>oasp4js-sample</artifactId>
-        <version>1.0.0-SNAPSHOT</version>
-        <type>zip</type>
-        <classifier>web</classifier>
-        <scope>runtime</scope>
-        -->
-        <groupId>${client.groupId}</groupId>
-        <artifactId>${client.artifactId}</artifactId>
-        <version>${client.version}</version>
-        <type>zip</type>
-        <classifier>web</classifier>
-        <scope>runtime</scope>
-      </dependency>
+      <dependencies>
+        <dependency>
+          <!--
+          <groupId>io.oasp.js</groupId>
+          <artifactId>oasp4js-sample</artifactId>
+          <version>1.0.0-SNAPSHOT</version>
+          <type>zip</type>
+          <classifier>web</classifier>
+          <scope>runtime</scope>
+          -->
+          <groupId>${client.groupId}</groupId>
+          <artifactId>${client.artifactId}</artifactId>
+          <version>${client.version}</version>
+          <type>zip</type>
+          <classifier>web</classifier>
+          <scope>runtime</scope>
+        </dependency>
+      </dependencies>
       <build>
         <plugins>
           <plugin>
