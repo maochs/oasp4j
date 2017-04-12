@@ -122,8 +122,6 @@
           <warName>${project.artifactId}</warName>
           <overlays>
             <overlay>
-              <groupId>${client.groupId}</groupId>
-              <artifactId>${client.artifactId}</artifactId>
               <type>zip</type>
               <classifier>web</classifier>
               <targetPath>jsclient</targetPath>
