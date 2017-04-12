@@ -27,6 +27,44 @@
 
   <profiles>
     <profile>
+      <id>custom</id>
+      <activation>
+        <activeByDefault>false</activeByDefault>
+      </activation>
+      <dependencies>
+        <dependency>
+          <groupId>${client.groupId}</groupId>
+          <artifactId>${client.artifactId}</artifactId>
+          <version>${client.version}</version>
+          <type>zip</type>
+          <classifier>web</classifier>
+          <scope>runtime</scope>
+        </dependency>
+      </dependencies>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-war-plugin</artifactId>
+            <configuration>
+              <packagingExcludes>WEB-INF/classes/config/application.properties</packagingExcludes>
+              <warName>${project.artifactId}</warName>
+              <overlays>
+                <overlay>
+                  <groupId>${client.groupId}</groupId>
+                  <artifactId>${client.artifactId}</artifactId>
+                  <type>zip</type>
+                  <classifier>web</classifier>
+                  <targetPath>jsclient</targetPath>
+                </overlay>
+              </overlays>
+            </configuration>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+
+    <profile>
       <id>jsclient</id>
       <activation>
         <!--<activeByDefault>true</activeByDefault>-->
@@ -34,14 +72,6 @@
       </activation>
       <dependencies>
         <dependency>
-          <!--
-          <groupId>io.oasp.js</groupId>
-          <artifactId>oasp4js-sample</artifactId>
-          <version>1.0.0-SNAPSHOT</version>
-          <type>zip</type>
-          <classifier>web</classifier>
-          <scope>runtime</scope>
-          -->
           <groupId>${client.groupId}</groupId>
           <artifactId>${client.artifactId}</artifactId>
           <version>${client.version}</version>
